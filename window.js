@@ -284,6 +284,7 @@ window.onload = function()
 				// else { towerStairsState(); }	 
 
 			}
+			puzzleRoomA.maybeTick();
 			if(isLobby2)
 			{
 

@@ -18,6 +18,8 @@ body
 </style>
 <script src="window.js"></script>
 <script src="snd.js"></script>
+<script src="mazeLib.js"></script>
+<script src="rhythmSequencePlayer.js"></script>
 <script src="intro.js"></script>
 <script src="lobby.js"></script>
 <script src="lobby2.js"></script>
@@ -31,6 +33,8 @@ body
 <script src="puzzle7.js"></script>
 <script src="puzzle8.js"></script>
 <script src="puzzle9.js"></script>
+<script src="tiles.js"></script>  <!-- puzzleA constructor needs randomInt.  How early should tiles.js be included? -->
+<script src="puzzleA.js"></script>
 <script src="towerstairs.js"></script>
 <script src="tower.js"></script>
 <script src="slide.js"></script>
@@ -38,7 +42,6 @@ body
 <script src="throne.js"></script>
 <script src="character.js"></script>
 <script src="guard.js"></script>
-<script src="tiles.js"></script>
 <script src="items.js"></script>
 <script src="text.js"></script>
 <script type="text/javascript">
@@ -647,6 +650,7 @@ function drawGame()
 		clearGuard(tick);
 		processTowerTiles(tick);
 	}
+	puzzleRoomA.maybeDraw(currentFrameTime, currentSecond, tick)
 	if(isSlide) 
 	{ 
 		if(slideTick) { drawSlide(); clearTextBar(); playSnd(144);}
@@ -696,6 +700,7 @@ function drawGame()
 	!isPuzzleRoom7 &&
 	!isPuzzleRoom9 &&
 	!isPuzzleRoom8 &&
+	!puzzleRoomA.isActive() &&
 	!isSlide &&
 	!isGallery && !isPuzzleRoom6 && !isTowerStairs && !isTower) { 
 		playSnd(gameMap[toIndex(playerX(),playerY())]);

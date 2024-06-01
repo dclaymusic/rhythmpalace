@@ -203,14 +203,12 @@ function processTowerTiles(tick)
 			playBgSnd(159,'slide3'); playBgSnd(160,'slide4'); 
 			secretSlideEntrance = true;
 			isTower = false;
-			isSlide = true;
-			slideTick = true;
+			puzzleRoomA.setActive();
 		}
 		if(thisTileIs() == 66)
 		{
 			isTower = false;
-			isSlide = true;
-			slideTick = true;
+			puzzleRoomA.setActive();
 		}
 	}
 }
